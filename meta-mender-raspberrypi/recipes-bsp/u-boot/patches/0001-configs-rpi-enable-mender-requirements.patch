@@ -1,4 +1,4 @@
-From 8618814d92e08758b531f75d0b2f9b01a2632076 Mon Sep 17 00:00:00 2001
+From ee7e434640500ac124c91380a44bc490c7ee5048 Mon Sep 17 00:00:00 2001
 From: Josef Holzmayr <jester@theyoctojester.info>
 Date: Wed, 26 Jul 2023 10:53:51 +0200
 Subject: [PATCH] configs: rpi: enable mender requirements
@@ -18,7 +18,7 @@ This patch is a refresh.
 Signed-off-by: Josef Holzmayr <jester@theyoctojester.info>
 Signed-off-by: Leon Anavi <leon.anavi@konsulko.com>
 ---
- configs/rpi_0_w_defconfig      | 5 ++++-
+ configs/rpi_0_w_defconfig      | 1 -
  configs/rpi_2_defconfig        | 5 ++++-
  configs/rpi_3_32b_defconfig    | 5 ++++-
  configs/rpi_3_b_plus_defconfig | 5 ++++-
@@ -27,16 +27,16 @@ Signed-off-by: Leon Anavi <leon.anavi@konsulko.com>
  configs/rpi_4_defconfig        | 5 ++++-
  configs/rpi_5_defconfig        | 5 ++++-
  configs/rpi_arm64_defconfig    | 5 ++++-
- configs/rpi_defconfig          | 5 ++++-
+ configs/rpi_defconfig          | 1 -
  env/Kconfig                    | 1 -
  include/configs/rpi.h          | 5 +++++
- 12 files changed, 45 insertions(+), 11 deletions(-)
+ 12 files changed, 37 insertions(+), 11 deletions(-)
 
 diff --git a/configs/rpi_0_w_defconfig b/configs/rpi_0_w_defconfig
-index 98f8904c91..484187fb1b 100644
+index 8d29d99160..daa274cc13 100644
 --- a/configs/rpi_0_w_defconfig
 +++ b/configs/rpi_0_w_defconfig
-@@ -24,7 +24,6 @@ CONFIG_CMD_GPIO=y
+@@ -25,7 +25,6 @@ CONFIG_CMD_GPIO=y
  CONFIG_CMD_MMC=y
  CONFIG_CMD_USB=y
  CONFIG_CMD_FS_UUID=y
@@ -44,14 +44,6 @@ index 98f8904c91..484187fb1b 100644
  CONFIG_SYS_RELOC_GD_ENV_ADDR=y
  CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG=y
  CONFIG_TFTP_TSIZE=y
-@@ -49,3 +48,7 @@ CONFIG_VIDEO_BCM2835=y
- CONFIG_CONSOLE_SCROLL_LINES=10
- CONFIG_PHYS_TO_BUS=y
- CONFIG_EFI_LOADER=y
-+CONFIG_ENV_IS_IN_MMC=y
-+CONFIG_ENV_OFFSET=0x800000
-+CONFIG_ENV_OFFSET_REDUND=0x1000000
-+CONFIG_SYS_REDUNDAND_ENVIRONMENT=y
 diff --git a/configs/rpi_2_defconfig b/configs/rpi_2_defconfig
 index 1b8676e1d1..63b9c60de5 100644
 --- a/configs/rpi_2_defconfig
@@ -213,10 +205,10 @@ index 02f942cf34..1cd89582c9 100644
 +CONFIG_ENV_OFFSET_REDUND=0x1000000
 +CONFIG_SYS_REDUNDAND_ENVIRONMENT=y
 diff --git a/configs/rpi_defconfig b/configs/rpi_defconfig
-index 060a880950..34819ac98d 100644
+index 64e6df41d8..b368b66a78 100644
 --- a/configs/rpi_defconfig
 +++ b/configs/rpi_defconfig
-@@ -24,7 +24,6 @@ CONFIG_CMD_GPIO=y
+@@ -25,7 +25,6 @@ CONFIG_CMD_GPIO=y
  CONFIG_CMD_MMC=y
  CONFIG_CMD_USB=y
  CONFIG_CMD_FS_UUID=y
@@ -224,16 +216,8 @@ index 060a880950..34819ac98d 100644
  CONFIG_SYS_RELOC_GD_ENV_ADDR=y
  CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG=y
  CONFIG_TFTP_TSIZE=y
-@@ -49,3 +48,7 @@ CONFIG_VIDEO_BCM2835=y
- CONFIG_CONSOLE_SCROLL_LINES=10
- CONFIG_PHYS_TO_BUS=y
- CONFIG_EFI_LOADER=y
-+CONFIG_ENV_IS_IN_MMC=y
-+CONFIG_ENV_OFFSET=0x800000
-+CONFIG_ENV_OFFSET_REDUND=0x1000000
-+CONFIG_SYS_REDUNDAND_ENVIRONMENT=y
 diff --git a/env/Kconfig b/env/Kconfig
-index 1f8e90af55..8778580ecd 100644
+index 031cf58186..81f9690a01 100644
 --- a/env/Kconfig
 +++ b/env/Kconfig
 @@ -96,7 +96,6 @@ config ENV_IS_IN_EEPROM
