@@ -7,7 +7,11 @@ SRC_URI = " \
     file://fw_setenv \
 "
 
-PROVIDES += "libubootenv"
+PROVIDES += " \
+    libubootenv \
+    u-boot \
+    virtual/bootloader \
+"
 
 S = "${WORKDIR}"
 
