@@ -23,6 +23,13 @@ do_install() {
     install -m 0755 ${S}/fw_printenv ${S}/fw_setenv ${D}${base_sbindir}/
 }
 
+do_deploy[nostamp] = "1"
+
+do_deploy() {
+    :
+}
+addtask deploy after do_install before do_package
+
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RPROVIDES:${PN} += "libubootenv-bin u-boot-fw-utils"
