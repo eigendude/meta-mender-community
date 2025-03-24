@@ -150,7 +150,6 @@ do_image_mender[depends] += "${_MENDER_IMAGE_DEPS_EXTRA}"
 # be included by default on cboot platforms.
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS:remove:tegra194 = "kernel-image kernel-devicetree"
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS:remove:tegra186 = "${@'kernel-image kernel-devicetree' if (d.getVar('PREFERRED_PROVIDER_virtual/bootloader') or '').startswith('cboot') else ''}"
-MACHINE_ESSENTIAL_EXTRA_RDEPENDS:remove:tegra234 = "kernel-image kernel-devicetree"
 
 # Compatibility settings for handling the machine name changes
 # made in L4T R32.5.x, to allow for upgrades.  This does not
